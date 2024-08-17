@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Fallouh Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@200;300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'K2D', sans-serif;
+            background-color: #f5f5f5;
+            color: #333333;
+            padding-top: 70px; /* Space for the fixed header */
+            padding-bottom: 50px; /* Space for the fixed footer */
+        }
+        .navbar {
+            background-color: #007bff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav-link {
+            color: #ffffff;
+        }
+        .nav-link:hover {
+            color: #f39c12;
+        }
+        .navbar-brand {
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            text-shadow: none;
+            border: 3px solid #ffffff;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .navbar-brand:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(0, 86, 179, 0.7);
+        }
+        .navbar-brand span {
+            color: #007bff; /* Same color as the circle's gradient */
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .navbar-toggler-icon {
+            color: #ffffff;
+        }
+        .language-switch {
+            cursor: pointer;
+            color: #ffffff;
+            margin-left: 20px;
+        }
+        #intro {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #intro h1 {
+            font-size: 3rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        #intro p {
+            font-size: 1.5rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 100%;
+            max-width: 200px;
+            margin: 5px auto;
+            font-size: 0.9rem;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            box-shadow: 0 0 10px #0056b3;
+        }
+        #projects, #skills, #contact {
+            padding: 50px 20px;
+        }
+        .skill-item, .project-item {
+            margin-bottom: 10px; /* Reduced margin between skills */
+            transition: transform 0.3s ease-in-out;
+        }
+        .skill-item img, .skill-item i, .project-card a {
+            max-width: 50px;
+            max-height: 50px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer; /* Ensures all icons are interactive */
+        }
+        .skill-item img:hover, .skill-item i:hover, .project-card a:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #007bff;
+        }
+        .project-item:hover {
+            transform: scale(1.05);
+        }
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .project-card .btn-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .project-card .btn-group a {
+            flex: 1;
+            max-width: 150px;
+            margin: 5px;
+            padding: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .social-links img {
+            width: 30px;
+            margin: 0 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .social-links img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #ffffff;
+        }
+        .fade-background {
+            transition: background-color 1s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            #intro h1 {
+                font-size: 2.5rem;
+            }
+            #intro p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .project-card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                width: 60px;
+                height: 60px;
+            }
+            #intro h1 {
+                font-size: 2rem;
+            }
+            #intro p {
+                font-size: 1rem;
+            }
+            .project-card {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                width: 50px;
+                height: 50px;
+            }
+            #intro {
+                padding: 80px 15px;
+            }
+            #intro h1 {
+                font-size: 1.5rem;
+            }
+            #intro p {
+                font-size: 0.9rem;
+            }
+            .project-card {
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            .btn-custom {
+                font-size: 0.8rem;
+                padding: 8px 10px;
+            }
+            .skill-item img, .skill-item i, .project-card a {
+                max-width: 40px;
+                max-height: 40px;
+            }
+            footer {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">JF</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#intro" id="about-link-en">About Me</a>
+                    <a class="nav-link" href="#intro" id="about-link-fr" style="display:none;">À propos de moi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects" id="projects-link-en">Projects</a>
+                    <a class="nav-link" href="#projects" id="projects-link-fr" style="display:none;">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills" id="skills-link-en">Skills</a>
+                    <a class="nav-link" href="#skills" id="skills-link-fr" style="display:none;">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" id="contact-link-en" onclick="highlightFooter()">Contact Me</a>
+                    <a class="nav-link" href="#contact" id="contact-link-fr" style="display:none;" onclick="highlightFooter()">Contactez-moi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="james_fallouh_cv.pdf" download="JamesFallouhCV">Download CV</a>
+                </li>
+                <li class="nav-item">
+                    <span class="language-switch" onclick="switchLanguage('en')">EN</span>
+                    <span class="language-switch" onclick="switchLanguage('fr')">FR</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Introduction -->
+    <section id="intro">
+        <h1 class="display-4" id="intro-title-en">Hello, I'm James Fallouh</h1>
+        <h1 class="display-4" id="intro-title-fr" style="display:none;">Bonjour, je suis James Fallouh</h1>
+        <p class="lead" id="intro-text-en">Aspiring Full Stack Developer</p>
+        <p class="lead" id="intro-text-fr" style="display:none;">Développeur Full Stack en herbe</p>
+        <button class="btn btn-custom" id="contact-btn-en" onclick="highlightFooter()">Contact Me</button>
+        <button class="btn btn-custom" id="contact-btn-fr" style="display:none;" onclick="highlightFooter()">Contactez-moi</button>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="text-center mb-5" id="projects-title-en">Projects</h2>
+        <h2 class="text-center mb-5" id="projects-title-fr" style="display:none;">Projets</h2>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Medical Appointment Booking System</h3>
+                    <p>Frontend: React.<br>Backend: Spring.</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/MedicalAppointmentBookingSystem/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/MedicalAppointmentBookingSystem" class="btn btn-custom" target="_blank">View Code</a>
+                        <a href="https://www.youtube.com/@CodingJavawithJames-n7e" class="btn btn-custom" target="_blank">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Hotel Reservation System</h3>
+                    <p>Frontend: HTML, CSS, Bootstrap.<br>Backend: Laravel.</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/HotelReservationSystem/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/HotelReservationSystem" class="btn btn-custom" target="_blank">View Code</a>
+                        <a href="https://www.youtube.com/@CodingJavawithJames-n7e" class="btn btn-custom" target="_blank">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Bookstore Management System</h3>
+                    <p>Frontend: Blade, CSS, Bootstrap.<br>Backend: Spring MVC, Spring Security.</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/BookstoreManagementSystem/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/BookstoreManagementSystem" class="btn btn-custom" target="_blank">View Code</a>
+                        <a href="https://www.youtube.com/@CodingJavawithJames-n7e" class="btn btn-custom" target="_blank">Watch Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Code Crafter Hub</h3>
+                    <p>Frontend: Bootstrap.<br>Backend: Express (TypeScript).</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/CodeCrafterHub/webpages/english/about-us/james-fallouh.html" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/CodeCrafterHub" class="btn btn-custom" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>BMI Calculator</h3>
+                    <p>Technologies: HTML, CSS, JavaScript</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/JamesFallouh.BMI-Calculator/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/JamesFallouh.BMI-Calculator/tree/main" class="btn btn-custom" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Tic Tac Toe Game</h3>
+                    <p>Technologies: HTML, CSS, JavaScript</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/jamesfallouh.tictactoe/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/jamesfallouh.tictactoe" class="btn btn-custom" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Memory Matching Game</h3>
+                    <p>Technologies: HTML, CSS, JavaScript</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/jamesfallouh.MemoryMatchingGame/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/jamesfallouh.MemoryMatchingGame/tree/main" class="btn btn-custom" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="project-card">
+                    <h3>Quiz Game</h3>
+                    <p>Technologies: HTML, CSS, JavaScript</p>
+                    <div class="btn-group">
+                        <a href="https://jfallouh.github.io/jamesFallouh.QuizGame/" class="btn btn-custom" target="_blank">Visit Website</a>
+                        <a href="https://github.com/JFallouh/jamesFallouh.QuizGame/tree/main" class="btn btn-custom" target="_blank">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="text-center mb-5" id="skills-title-en">Skills & Technologies</h2>
+        <h2 class="text-center mb-5" id="skills-title-fr" style="display:none;">Compétences & Technologies</h2>
+        <div class="row">
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="img-fluid">
+                <p>Java</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="img-fluid">
+                <p>C#</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="img-fluid">
+                <p>Python</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="img-fluid">
+                <p>JavaScript</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB" class="img-fluid">
+                <p>MongoDB</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="img-fluid">
+                <p>GitHub</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" class="img-fluid">
+                <p>Spring</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <i class="fab fa-laravel fa-4x"></i>
+                <p>Laravel</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" alt="Express" class="img-fluid">
+                <p>Express</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <i class="fas fa-database fa-4x"></i>
+                <p>PostgreSQL</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <i class="fas fa-network-wired fa-4x"></i>
+                <p>Networking</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" alt="HTML/CSS" class="img-fluid">
+                <p>HTML/CSS</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="img-fluid">
+                <p>PHP</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg" alt="Bootstrap" class="img-fluid">
+                <p>Bootstrap</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt="React" class="img-fluid">
+                <p>React</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="Intellij" class="img-fluid">
+                <p>Intellij</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" class="img-fluid">
+                <p>Node.js</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <i class="fas fa-project-diagram fa-4x"></i>
+                <p>MVC Architecture</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <i class="fas fa-database fa-4x"></i>
+                <p>SQL</p>
+            </div>
+            <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original-wordmark.svg" alt="ASP .net" class="img-fluid">
+                <p>ASP .net</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="text-center mb-5" id="contact-title-en">Contact Me</h2>
+        <h2 class="text-center mb-5" id="contact-title-fr" style="display:none;">Contactez-moi</h2>
+        <form action="https://formspree.io/f/mblrywdz" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Name" required id="contact-name-en">
+                <input type="text" class="form-control" name="name" placeholder="Nom" required id="contact-name-fr" style="display:none;">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="_replyto" placeholder="Email" required id="contact-email-en">
+                <input type="email" class="form-control" name="_replyto" placeholder="E-mail" required id="contact-email-fr" style="display:none;">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required id="contact-message-en"></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required id="contact-message-fr" style="display:none;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-custom" id="submit-btn-en" onclick="highlightFooter()">Submit</button>
+            <button type="submit" class="btn btn-custom" id="submit-btn-fr" style="display:none;" onclick="highlightFooter()">Soumettre</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p id="footer-en">© 2024 James Fallouh</p>
+        <p id="footer-fr" style="display:none;">© 2024 James Fallouh</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/james-fallouh-025763298/" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+            </a>
+            <a href="https://stackoverflow.com/users/23288643/james" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stackoverflow/stackoverflow-original.svg" alt="StackOverflow">
+            </a>
+            <a href="https://github.com/JFallouh" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            </a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Language Switcher Script -->
+    <script>
+        function switchLanguage(lang) {
+            if (lang === 'en') {
+                document.querySelectorAll('[id*="-en"]').forEach(el => el.style.display = '');
+                document.querySelectorAll('[id*="-fr"]').forEach(el => el.style.display = 'none');
+            } else if (lang === 'fr') {
+                document.querySelectorAll('[id*="-en"]').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('[id*="-fr"]').forEach(el => el.style.display = '');
+            }
+        }
+
+        function highlightFooter() {
+            // Temporarily darken the background and focus on the footer icons
+            document.body.classList.add('fade-background');
+            document.querySelector('footer').scrollIntoView({ behavior: 'smooth' });
+            document.querySelectorAll('.social-links img').forEach(img => {
+                img.style.transform = 'scale(2)';
+                img.style.boxShadow = '0 0 20px #ffffff';
+            });
+
+            // Restore the background and footer icons after 2 seconds, then scroll to contact form
+            setTimeout(() => {
+                document.body.classList.remove('fade-background');
+                document.querySelectorAll('.social-links img').forEach(img => {
+                    img.style.transform = 'scale(1)';
+                    img.style.boxShadow = 'none';
+                });
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
+    </script>
+</body>
+</html>
