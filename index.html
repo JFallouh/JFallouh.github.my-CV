@@ -34,7 +34,7 @@
         .nav-link {
             color: #ffffff;
         }
-        .nav-link:hover {
+        .nav-link:hover , .language-switch:hover {
             color: #f39c12;
         }
         .navbar-brand {
@@ -74,6 +74,7 @@
             color: #ffffff;
             margin-left: 20px;
         }
+       
         #intro {
             text-align: center;
             padding: 100px 20px;
@@ -125,8 +126,9 @@
             text-align: center;
         }
         .btn-custom:hover {
-            background-color: #333333; /* Updated hover color */
+            background-color: rgb(46, 9, 179); /* Updated hover color */
             box-shadow: 0 0 10px #ffffff;
+            color: #f39c12;
         }
         #projects, #skills, #contact {
             padding: 50px 0px;
@@ -216,17 +218,18 @@
     }
 
     .carousel-caption {
-    color: black; /* Set the text color to black */
+    color: rgb(236, 226, 226); /* Set the text color to black */
     text-align: center; /* Center the text horizontally */
     left: 50%;
     transform: translateX(-50%);
     bottom: 2rem; /* Adjust this value to move the text higher or lower in the carousel */
     width: 100%; /* Ensure the caption spans the full width of the carousel */
+
 }
 
 .carousel-caption h5, .carousel-caption p {
-    color: black;
-    font-size: 3rem;
+    color: rgb(248, 245, 245);
+    font-size: 1.4rem;
      /* Ensure both h5 and p elements are black */
     /* margin: 0 auto; /* Center the elements */
     /* display: inline-block; Treat the elements as inline-block for proper centering */ 
@@ -297,6 +300,23 @@
                 padding: 5px;
             }
         }
+
+        .text-container, .text-container-intro {
+  background-color: rgba(16, 1, 1, 0.9); /* Black background with 50% transparency */
+  color: white; /* Text color */
+  padding: 0.4rem; /* Add some padding */
+  display: inline-block; /* Keep it inline if it's a small amount of text */
+  border-radius: 2rem;
+  margin: 0.1em;
+
+}
+.text-container-intro {
+    background-color: rgba(240, 234, 234, 0.5);
+    
+}
+.text-container{
+    padding: 1rem;
+}
     </style>
 </head>
 <body>
@@ -337,15 +357,22 @@
     </nav>
 
     <!-- Introduction -->
-    <section id="intro">
-        <h1 class="display-4" id="intro-title-en">Hello, I'm James Fallouh</h1>
-        <h1 class="display-4" id="intro-title-fr" style="display:none;">Bonjour, je suis James Fallouh</h1>
-        <p class="lead" id="intro-text-en">Aspiring Full Stack Developer</p>
-        <p class="lead" id="intro-text-fr" style="display:none;">Développeur Full Stack en herbe</p>
+    <section id="intro" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="text-container-intro div-en" style=" padding: 1em;">
+            <h1 class="display-4" id="intro-title-en">Hello, I'm James Fallouh</h1>
+        </div>
+        <div  class="text-container-intro div-fr" style=" padding: 1em;">
+            <h1 class="display-4" id="intro-title-fr" style="display:none;">Bonjour, je suis James Fallouh</h1>
+        </div>
+        <div class="text-container-intro div-en" style=" padding: 1em;">
+            <p class="lead" id="intro-text-en">Aspiring Full Stack Developer</p>
+        </div>
+        <div class="text-container-intro div-fr" style=" padding: 1em;">
+            <p class="lead" id="intro-text-fr" style="display:none;">Développeur Full Stack en herbe</p>
+        </div>
         <button class="btn btn-custom" id="contact-btn-en" onclick="highlightFooter()">Contact Me</button>
         <button class="btn btn-custom" id="contact-btn-fr" style="display:none;" onclick="highlightFooter()">Contactez-moi</button>
     </section>
-
     <!-- Projects Section -->
     <section id="projects" class="container">
         <h2 class="text-center mb-5" id="projects-title-en">Projects</h2>
@@ -367,57 +394,57 @@
                 <div class="carousel-item active">
                     <img src="images/medical_appointment.webp" class="d-block w-100" alt="Medical Appointment Booking System">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Medical Appointment Booking System</h5>
-                        <p>Frontend: React. Backend: Spring.</p>
+                        <div class="text-container "> <h5>Medical Appointment Booking System</h5></div>
+                       <!-- <div class="text-container "> <p>Frontend: React. Backend: Spring.</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/hotel_reservation.webp" class="d-block w-100" alt="Hotel Reservation System">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Hotel Reservation System</h5>
-                        <p>Frontend: HTML, CSS, Bootstrap. Backend: Laravel.</p>
+                        <div class="text-container "> <h5>Hotel Reservation System</h5></div>
+                        <!-- <div class="text-container "> <p>Frontend: HTML, CSS, Bootstrap. Backend: Laravel.</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/bookstore_management.webp" class="d-block w-100" alt="Bookstore Management System">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Bookstore Management System</h5>
-                        <p>Frontend: Blade, CSS, Bootstrap. Backend: Spring MVC, Spring Security.</p>
+                        <div class="text-container "><h5>Bookstore Management System</h5></div>
+                        <!-- <div class="text-container "> <p>Frontend: Blade, CSS, Bootstrap. Backend: Spring MVC, Spring Security.</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/code_crafter_hub.webp" class="d-block w-100" alt="Code Crafter Hub">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Code Crafter Hub</h5>
-                        <p>Frontend: Bootstrap. Backend: Express (TypeScript).</p>
+                        <div class="text-container "> <h5>Code Crafter Hub</h5></div>
+                        <!-- <div class="text-container "> <p>Frontend: Bootstrap. Backend: Express (TypeScript).</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/bmi_calculator.webp" class="d-block w-100" alt="BMI Calculator">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>BMI Calculator</h5>
-                        <p>Technologies: HTML, CSS, JavaScript.</p>
+                        <div class="text-container "><h5>BMI Calculator</h5></div>
+                        <!-- <div class="text-container "><p>Technologies: HTML, CSS, JavaScript.</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/tic_tac_toe.webp" class="d-block w-100" alt="Tic Tac Toe Game">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Tic Tac Toe Game</h5>
-                        <p>Technologies: HTML, CSS, JavaScript.</p>
+                        <div class="text-container "> <h5>Tic Tac Toe Game</h5></div>
+                        <!-- <div class="text-container "><p>Technologies: HTML, CSS, JavaScript.</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/memory_matching.webp" class="d-block w-100" alt="Memory Matching Game">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Memory Matching Game</h5>
-                        <p>Technologies: HTML, CSS, JavaScript.</p>
+                        <div class="text-container ">  <h5>Memory Matching Game</h5></div>
+                        <!-- <div class="text-container "> <p>Technologies: HTML, CSS, JavaScript.</p></div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="images/quiz_game.webp" class="d-block w-100" alt="Quiz Game">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Quiz Game</h5>
-                        <p>Technologies: HTML, CSS, JavaScript.</p>
+                        <div class="text-container "> <h5>Quiz Game</h5></div>
+                        <!-- <div class="text-container "><p>Technologies: HTML, CSS, JavaScript.</p></div> -->
                     </div>
                 </div>
             </div>
@@ -671,9 +698,14 @@
             if (lang === 'en') {
                 document.querySelectorAll('[id*="-en"]').forEach(el => el.style.display = '');
                 document.querySelectorAll('[id*="-fr"]').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('[class*="-fr"]').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('[class*="-en"]').forEach(el => el.style.display = '');
+
             } else if (lang === 'fr') {
                 document.querySelectorAll('[id*="-en"]').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('[class*="-en"]').forEach(el => el.style.display = 'none');
                 document.querySelectorAll('[id*="-fr"]').forEach(el => el.style.display = '');
+                document.querySelectorAll('[class*="-fr"]').forEach(el => el.style.display = '');
             }
         }
 
@@ -696,6 +728,10 @@
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
             }, 500);
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+        switchLanguage('en'); // Change 'en' to 'fr' if you prefer French as the default language
+    });
     </script>
 </body>
 </html>
