@@ -1031,10 +1031,18 @@
             });
         });
 
-        // Event listener to focus on the corresponding project card when clicking on an h5 in the carousel
-        document.querySelectorAll('.carousel-caption h5').forEach(h5 => {
-            h5.addEventListener('click', function () {
-                const projectTitle = this.textContent.trim();
+        // Event listener to focus on the corresponding project card when clicking on an h5 or image in the carousel
+        document.querySelectorAll('.carousel-caption h5, .carousel-item img').forEach(element => {
+            element.addEventListener('click', function () {
+                let projectTitle;
+
+                // Check if the clicked element is an h5 or an image
+                if (this.tagName.toLowerCase() === 'h5') {
+                    projectTitle = this.textContent.trim();
+                } else if (this.tagName.toLowerCase() === 'img') {
+                    // Find the corresponding h5 element in the same carousel-caption
+                    projectTitle = this.closest('.carousel-item').querySelector('.carousel-caption h5').textContent.trim();
+                }
 
                 // Find the corresponding project card by matching the title
                 const projectCard = Array.from(document.querySelectorAll('.project-card')).find(card =>
@@ -1048,7 +1056,6 @@
                 }
             });
         });
-
         // Reusable function to focus on an element
         function focusElement(element) {
             // Remove focus from all other elements
@@ -1104,9 +1111,10 @@
         function clearFocusOnClickOutside(event) {
             const focusedElement = document.querySelector('.focused-section');
             const h5Elements = document.querySelectorAll('.carousel-caption h5');
+            const imgElements = document.querySelectorAll('.carousel-item img');
 
             // Check if the click is outside the focused element and not on an h5 element
-            if (focusedElement && !focusedElement.contains(event.target) && !Array.from(h5Elements).includes(event.target)) {
+            if (focusedElement && !focusedElement.contains(event.target) && !Array.from(h5Elements).includes(event.target) && !Array.from(imgElements).includes(event.target)) {
                 clearFocus();
             }
         }
