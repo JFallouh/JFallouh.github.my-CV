@@ -104,14 +104,14 @@
             /* Background image */
             background-size: cover;
             background-position: center;
-           ;
-            
+            ;
+
             opacity: 0.9;
             transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
-            
+
             background-color: #3D3743 !important;
             border: 1px solid #524C5B !important;
-            
+
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
             margin-bottom: 1.5rem !important;
             padding: 1.25rem !important;
@@ -205,8 +205,7 @@
         }
 
         .skill-item img:hover,
-        .skill-item i:hover
-        {
+        .skill-item i:hover {
             transform: scale(1.02);
             /* Scale up on hover */
             box-shadow: 0 0 10px #007bff;
@@ -230,9 +229,9 @@
             /* Slightly scale up on hover */
         }
 
-        
 
-        
+
+
 
         .project-card .btn-group {
             display: flex;
@@ -411,18 +410,18 @@
 
         /* Focused Section Styling */
         .focused-section {
-            transform: scale(1.1);
+            transform: scale(1.02);
             /* Slightly larger scale to make it stand out */
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9) !important;
             /* Brighter shadow to highlight */
-            background-color: #f0f8ff;
+            background-color: #f0f8ff !important;
             /* Change background color to light color */
-            color: gold;
+            color: gold !important;
             /* Ensure text is visible with the new background color */
-            transition: transform 1s ease-in-out, box-shadow 1s ease-in-out, background-color 1s ease-in-out, color 1s ease-in-out;
-            z-index: 1000;
+            transition: transform 1s ease-in-out, box-shadow 1s ease-in-out, background-color 1s ease-in-out, color 1s ease-in-out !important;
+            /* z-index: 1000; */
             position: relative;
-            background-color: rgb(81, 81, 240) ;
+            background-color: rgb(81, 81, 240) !important;
         }
 
         /* Fade-out effect for background when focusing on a section */
@@ -527,37 +526,40 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
             background-color: #2D2A32 !important;
             color: #D4D4D9 !important;
-           
-            
+
+
         }
 
-        
+
 
         h1,
         h2,
         h3,
         h4,
         h5,
-        h6,#intro-text-en,#intro-text-fr {
+        h6,
+        #intro-text-en,
+        #intro-text-fr {
             color: #36D7B7 !important;
         }
 
         /* Card Styles */
-         /* Project Card Styling */
-        
+        /* Project Card Styling */
+
         .project-card {
-            background-color: #3D3743 ; 
-             border: 1px solid #524C5B ;
-            border-radius: 3em ;
+            background-color: #3D3743;
+            border: 1px solid #524C5B;
+            border-radius: 3em;
             /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important; */
-            margin-bottom: 1.5rem ;
-            padding: 1.25rem ;
-             /* background-color: #ffffff; */
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            /* background-color: #ffffff; */
             /* border-radius: 10px; */
             /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             text-align: center;
         }
+
         .project-card:hover {
             transform: scale(1.05);
             /* Slightly scale up on hover */
@@ -565,8 +567,8 @@
             /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
             /* Slightly deeper shadow */
         }
-        
-        
+
+
 
         .card-title,
         .project-card h3 {
@@ -676,7 +678,7 @@
         } */
 
         footer p {
-           
+
             color: #A9A9B4 !important;
         }
 
@@ -685,7 +687,7 @@
             text-align: center !important;
         }
 
-       
+
 
         .rounded-circle {
             border-radius: 50% !important;
@@ -702,7 +704,7 @@
             justify-content: space-between !important;
         }
 
-       
+
 
         .list-group-item {
             border: 1px solid #524C5B !important;
@@ -711,7 +713,6 @@
             background-color: #3D3743 !important;
             color: #D4D4D9 !important;
         }
-        
     </style>
 
 </head>
@@ -1159,7 +1160,8 @@
             </div>
             <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg"
-                    alt="Express" class="img-fluid">
+                    alt="Express" class="img-fluid" style="filter: invert(1);">
+
                 <p>Express</p>
             </div>
             <div class="col-4 col-sm-3 col-md-2 skill-item text-center">
