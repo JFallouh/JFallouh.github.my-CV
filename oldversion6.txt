@@ -99,22 +99,15 @@
         #intro {
             text-align: center;
             padding: 100px 20px;
-            /* background-color: #ffffff;
-            background-image: url('images/intro-bg.webp'); */
+            background-color: #ffffff;
+            background-image: url('images/intro-bg.webp');
             /* Background image */
             background-size: cover;
             background-position: center;
-           ;
-            
+            color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             opacity: 0.9;
             transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
-            
-            background-color: #3D3743 !important;
-            border: 1px solid #524C5B !important;
-            
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
-            margin-bottom: 1.5rem !important;
-            padding: 1.25rem !important;
         }
 
         #intro:hover {
@@ -340,7 +333,7 @@
         /* Text Container Styling */
         .text-container,
         .text-container-intro {
-            /* background-color: rgba(16, 1, 1, 0.9); */
+            background-color: rgba(16, 1, 1, 0.9);
             /* Black background with 90% opacity */
             color: white;
             padding: 0.4rem;
@@ -349,10 +342,10 @@
             margin: 0.1em;
         }
 
-        /* .text-container-intro {
+        .text-container-intro {
             background-color: rgba(240, 234, 234, 0.5);
-             Lighter background for intro text 
-        } */
+            /* Lighter background for intro text */
+        }
 
         .text-container {
             padding: 1rem;
@@ -531,184 +524,6 @@
                 padding: 5px;
             }
         }
-
-
-        /* new style */
-        /* General Body Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-            background-color: #2D2A32 !important;
-            color: #D4D4D9 !important;
-           
-            
-        }
-
-        
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,#intro-text-en {
-            color: #36D7B7 !important;
-        }
-
-        /* Card Styles */
-        .card,
-        .project-card {
-            background-color: #3D3743 !important;
-            border: 1px solid #524C5B !important;
-            border-radius: 3em !important;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
-            margin-bottom: 1.5rem !important;
-            padding: 1.25rem !important;
-        }
-
-        .card-title,
-        .project-card h3 {
-            margin-bottom: 0.75rem !important;
-            color: #36D7B7 !important;
-            font-weight: bold !important;
-        }
-
-        .card-text,
-        .project-card p {
-            color: #A9A9B4 !important;
-        }
-
-        .card img {
-            border-top-left-radius: 0.25rem !important;
-            border-top-right-radius: 0.25rem !important;
-        }
-
-        /* Button Styles */
-        .btn {
-            /* padding: 0.5rem 1rem !important; */
-            border: none !important;
-            border-radius: 5rem !important;
-            /* font-size: 1rem !important; */
-            cursor: pointer !important;
-            transition: background-color 0.3s ease !important;
-        }
-
-        .btn-primary {
-            background-color: #36D7B7 !important;
-            color: #fff !important;
-        }
-
-        .btn-primary:hover {
-            background-color: #2BB39C !important;
-        }
-
-        .btn-danger {
-            background-color: #E74C3C !important;
-            color: #fff !important;
-        }
-
-        .btn-danger:hover {
-            background-color: #C0392B !important;
-        }
-
-        .btn-secondary {
-            background-color: #9B59B6 !important;
-            color: #fff !important;
-        }
-
-        .btn-secondary:hover {
-            background-color: #8E44AD !important;
-        }
-
-        /* Form Styles */
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        textarea {
-            width: 100% !important;
-            padding: 0.75rem !important;
-            margin-bottom: 1rem !important;
-            border: 1px solid #524C5B !important;
-            border-radius: 0.25rem !important;
-            background-color: #e5dfeb !important;
-            color: #020216 !important;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="password"]:focus,
-        textarea:focus {
-            border-color: #36D7B7 !important;
-            outline: none !important;
-        }
-
-        label {
-            margin-bottom: 0.5rem !important;
-            font-weight: bold !important;
-            color: #D4D4D9 !important;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            /* background-color: #2D2A32 !important; */
-            padding: 1rem !important;
-            color: #D4D4D9 !important;
-            /* margin-bottom: 2rem !important; */
-        }
-
-        .navbar a {
-            color: #D4D4D9 !important;
-            text-decoration: none !important;
-            margin-right: 1rem !important;
-            font-weight: bold !important;
-        }
-
-        .navbar a:hover {
-            text-decoration: underline !important;
-        }
-
-        /* Footer Styles */
-        /* footer {
-            background-color: #2D2A32 !important;
-            
-        } */
-
-        footer p {
-           
-            color: #A9A9B4 !important;
-        }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center !important;
-        }
-
-       
-
-        .rounded-circle {
-            border-radius: 50% !important;
-        }
-
-        .img-fluid {
-            max-width: 100% !important;
-            height: auto !important;
-        }
-
-        .d-flex {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-        }
-
-       
-
-        .list-group-item {
-            border: 1px solid #524C5B !important;
-            margin-bottom: 0.5rem !important;
-            border-radius: 0.25rem !important;
-            background-color: #3D3743 !important;
-            color: #D4D4D9 !important;
-        }
-        
     </style>
 
 </head>
@@ -1017,14 +832,14 @@
             </div>
 
         </div>
-
+        
 
 
 
 
 
         <div class="row mt-4">
-
+            
 
 
             <div class="col-md-4 col-sm-6">
@@ -1075,7 +890,7 @@
         </div>
 
         <div class="row">
-
+            
             <div class="col-md-4 col-sm-6">
                 <div class="project-card" onclick="focusElement(this)">
                     <h3>Quiz Game</h3>
