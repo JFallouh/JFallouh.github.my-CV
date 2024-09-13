@@ -42,7 +42,7 @@
 
         .nav-link:hover,
         .language-switch:hover {
-            color: #f39c12;
+            /* color: #f39c12; */
             /* transform: scale(1.03); */
             background-color: rgb(60, 1, 54);
             display: inline-block;
@@ -50,7 +50,7 @@
         }
 
         .language-switch:hover {
-            transform: scale(1.6);
+            transform: scale(1.07);
             display: inline-block;
         }
 
@@ -205,9 +205,9 @@
         }
 
         .skill-item img:hover,
-        .skill-item i:hover,
-        .project-card a:hover {
-            transform: scale(1.2);
+        .skill-item i:hover
+        {
+            transform: scale(1.02);
             /* Scale up on hover */
             box-shadow: 0 0 10px #007bff;
             /* Add blue glow on hover */
@@ -230,23 +230,9 @@
             /* Slightly scale up on hover */
         }
 
-        /* Project Card Styling */
-        .project-card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            text-align: center;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+        
 
-        .project-card:hover {
-            transform: scale(1.05);
-            /* Slightly scale up on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            /* Slightly deeper shadow */
-        }
+        
 
         .project-card .btn-group {
             display: flex;
@@ -436,7 +422,7 @@
             transition: transform 1s ease-in-out, box-shadow 1s ease-in-out, background-color 1s ease-in-out, color 1s ease-in-out;
             z-index: 1000;
             position: relative;
-            background-color: rgb(81, 81, 240);
+            background-color: rgb(81, 81, 240) ;
         }
 
         /* Fade-out effect for background when focusing on a section */
@@ -552,20 +538,35 @@
         h3,
         h4,
         h5,
-        h6,#intro-text-en {
+        h6,#intro-text-en,#intro-text-fr {
             color: #36D7B7 !important;
         }
 
         /* Card Styles */
-        .card,
+         /* Project Card Styling */
+        
         .project-card {
-            background-color: #3D3743 !important;
-            border: 1px solid #524C5B !important;
-            border-radius: 3em !important;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
-            margin-bottom: 1.5rem !important;
-            padding: 1.25rem !important;
+            background-color: #3D3743 ; 
+             border: 1px solid #524C5B ;
+            border-radius: 3em ;
+            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important; */
+            margin-bottom: 1.5rem ;
+            padding: 1.25rem ;
+             /* background-color: #ffffff; */
+            /* border-radius: 10px; */
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
         }
+        .project-card:hover {
+            transform: scale(1.05);
+            /* Slightly scale up on hover */
+            /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); */
+            /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+            /* Slightly deeper shadow */
+        }
+        
+        
 
         .card-title,
         .project-card h3 {
