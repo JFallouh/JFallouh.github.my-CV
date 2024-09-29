@@ -541,6 +541,16 @@
         }
 
         @media (max-width: 768px) {
+
+            /* Default styling for desktop (video visible, button hidden) */
+            #watchDemoBtn {
+                display: none;
+            }
+
+            #videoContainer {
+                display: block;
+            }
+
             .modal-content {
                 width: 95%;
                 /* Allow the modal to take up more space on small screens */
@@ -561,8 +571,23 @@
             cursor: pointer;
         }
 
+        /* Default styling for desktop (video visible, button hidden) */
+        #watchDemoBtn {
+            display: none;
+        }
+
+
+
         /* Media Queries */
         @media (max-width: 1024px) {
+
+            #watchDemoBtn {
+                display: none;
+            }
+
+            #videoIframe {
+                display: block !important;
+            }
 
             nav {
                 display: none;
@@ -626,6 +651,13 @@
 
 
         @media (max-width: 768px) {
+
+
+
+            #watchDemoBtn {
+                display: block;
+            }
+
             .hamburger {
                 display: block;
                 color: #16213e;
@@ -777,11 +809,20 @@
             <a href="#projects" class="btn btn-primary">Explore My Work</a>
             <a href="james_fallouh_cv.pdf" class="btn btn-outline">Download CV</a>
 
+            <!-- New Watch Demo Button -->
+            <a href="#" id="watchDemoBtn" class="btn btn-outline"
+                data-video="https://www.youtube.com/embed/2CZmbsSZL-k">Watch Demo</a>
+
             <!-- Video Container for Desktop -->
+            <div class="video-container" id="videoContainer" style="display: none;">
+                <iframe id="videoIframe" width="560" height="315" src="https://www.youtube.com/embed/2CZmbsSZL-k"
+                    frameborder="0" allowfullscreen></iframe>
+            </div>
+            <!-- Video Container for Desktop
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/2CZmbsSZL-k" frameborder="0"
                     allowfullscreen></iframe>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -1120,12 +1161,92 @@
             }
         });
     </script>
-
-
+    <!-- 
     <script>
+        const watchDemoBtn = document.getElementById("watchDemoBtn");
+        const videoContainer = document.getElementById("videoContainer");
+        const videoIframe = document.getElementById("videoIframe");
+        const modal = document.getElementById("videoModal");
+        const closeModal = document.querySelector(".close");
+        const modalIframe = modal.querySelector("iframe");
+
+        // Add click event to the demo buttons to show modal with video
+        document.querySelectorAll(".btn-outline").forEach(button => {
+            button.addEventListener("click", function (e) {
+                e.preventDefault();
+                const videoUrl = this.getAttribute("data-video");
+                modalIframe.src = videoUrl;
+                modal.style.display = "block";
+            });
+        });
+
+        // Function to handle modal close actions (X button or outside click)
+        function closeVideoModal() {
+            modal.style.display = "none";
+            modalIframe.src = ""; // Stop the video
+        }
+
+        closeModal.addEventListener("click", closeVideoModal);
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeVideoModal();
+            }
+        };
+
+        // Handle desktop and mobile views
+        function handleDesktopView() {
+            videoContainer.style.display = "block";
+            watchDemoBtn.style.display = "none";
+        }
+
+        function handleMobileView() {
+            videoContainer.style.display = "none";
+            watchDemoBtn.style.display = "block";
+        }
+
+        function checkWindowSize() {
+            if (window.innerWidth <= 768) {
+                handleMobileView();
+            } else {
+                handleDesktopView();
+            }
+        }
+
+        // Show the modal when the watch demo button is clicked (for mobile view)
+        watchDemoBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            modalIframe.src = watchDemoBtn.getAttribute("data-video");
+            modal.style.display = "block";
+        });
+
+        // Handle mobile view video link open in new tab
+        if (window.innerWidth <= 768) {
+            const videoIframe = document.querySelector('.video-container iframe');
+            if (videoIframe) {
+                videoIframe.parentElement.removeEventListener('click', function () {
+                    window.open(videoIframe.src, '_blank');
+                });
+            }
+        }
+
+        // Check window size when the page loads
+        window.onload = checkWindowSize;
+
+        // Adjust the view when the window is resized
+        window.onresize = checkWindowSize;
+    </script> -->
+
+
+    <!-- <script>
+        const watchDemoBtn = document.getElementById("watchDemoBtn");
+        const videoContainer = document.getElementById("videoContainer");
+        const videoIframe = document.getElementById("videoIframe");
         const modal = document.getElementById("videoModal");
         const closeModal = document.querySelector(".close");
 
+
+    // Add click event to the demo buttons to show modal with video
         document.querySelectorAll(".btn-outline").forEach(button => {
             button.addEventListener("click", function () {
                 const videoUrl = this.getAttribute("data-video");
@@ -1134,9 +1255,10 @@
             });
         });
 
+        // Function to handle modal close actions (X button or outside click)
         closeModal.addEventListener("click", function () {
             modal.style.display = "none";
-            modal.querySelector("iframe").src = "";
+            modal.querySelector("iframe").src = "";// Stop the video
         });
 
         window.onclick = function (event) {
@@ -1145,6 +1267,7 @@
                 modal.querySelector("iframe").src = "";
             }
         }
+        closeModal.addEventListener("click", closeVideoModal);
 
         // Handle mobile view video link open in new tab
         if (window.innerWidth <= 768) {
@@ -1153,6 +1276,162 @@
                 window.open(videoContainer.src, '_blank');
             });
         }
+
+        // // Function to toggle video and button visibility
+        // watchDemoBtn.addEventListener("click", function (e) {
+        //     e.preventDefault();
+        //     if (videoContainer.style.display === "none") {
+        //         // Hide the button, show the video
+        //         watchDemoBtn.style.display = "none";
+        //         videoContainer.style.display = "block";
+        //     } else {
+        //         // Show the button, hide the video
+        //         watchDemoBtn.style.display = "block";
+        //         videoContainer.style.display = "none";
+        //     }
+        // });
+
+        // Handle modal close behavior for mobile
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+            modal.querySelector("iframe").src = ""; // Stop the video
+        });
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                modal.querySelector("iframe").src = ""; // Stop the video
+            }
+        };
+
+        // Handle mobile-specific video opening and closing
+        if (window.innerWidth <= 768) {
+            const modalButtons = document.querySelectorAll(".btn-outline");
+            modalButtons.forEach(button => {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const videoUrl = this.getAttribute("data-video");
+                    modal.querySelector("iframe").src = videoUrl;
+                    modal.style.display = "block";
+                });
+            });
+        }
+
+
+        // Show video and hide button for desktop view
+        function handleDesktopView() {
+            if (window.innerWidth > 768) {
+                videoContainer.style.display = "block";
+                watchDemoBtn.style.display = "none";
+            }
+        }
+
+        // Show button and hide video for mobile view
+        function handleMobileView() {
+            if (window.innerWidth <= 768) {
+                videoContainer.style.display = "none";
+                watchDemoBtn.style.display = "block";
+            }
+        }
+
+        // Check the window size and apply the appropriate view
+        function checkWindowSize() {
+            if (window.innerWidth <= 768) {
+                handleMobileView();
+            } else {
+                handleDesktopView();
+            }
+        }
+
+        // Toggle modal for mobile view
+        watchDemoBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const videoUrl = this.getAttribute("data-video");
+            modalIframe.src = videoUrl; // Set the correct video source
+            modal.style.display = "block"; // Open the modal
+        });
+
+        // Close the modal and stop the video when the 'X' button or outside click is pressed
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+            modalIframe.src = ""; // Stop the video
+        });
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                modalIframe.src = ""; // Stop the video
+            }
+        };
+        // Check window size when the page loads
+        window.onload = checkWindowSize;
+
+        // Adjust the view when the window is resized
+        window.onresize = checkWindowSize;
+    </script> -->
+    <script>
+        const watchDemoBtn = document.getElementById("watchDemoBtn");
+        const videoContainer = document.getElementById("videoContainer");
+        const modal = document.getElementById("videoModal");
+        const closeModal = document.querySelector(".close");
+        const modalIframe = modal.querySelector("iframe");
+
+        // Add click event to the demo buttons to show modal with video
+        document.querySelectorAll(".btn-outline").forEach(button => {
+            button.addEventListener("click", function (e) {
+                e.preventDefault();
+                const videoUrl = this.getAttribute("data-video");
+                modalIframe.src = videoUrl;
+                modal.style.display = "block";
+            });
+        });
+
+        // Close modal and stop video
+        function closeVideoModal() {
+            modal.style.display = "none";
+            modalIframe.src = ""; // Stop the video
+        }
+
+        closeModal.addEventListener("click", closeVideoModal);
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeVideoModal();
+            }
+        };
+
+        // Handle desktop and mobile views
+        function handleDesktopView() {
+            videoContainer.style.display = "block"; // Show video in desktop
+            watchDemoBtn.style.display = "none"; // Hide button in desktop
+        }
+
+        function handleMobileView() {
+            videoContainer.style.display = "none"; // Hide video in mobile
+            watchDemoBtn.style.display = "block"; // Show button in mobile
+        }
+
+        function checkWindowSize() {
+            if (window.innerWidth <= 768) {
+                handleMobileView();
+            } else {
+                handleDesktopView();
+            }
+        }
+
+        // Show the modal when the "Watch Demo" button is clicked (for mobile view)
+        watchDemoBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            modalIframe.src = watchDemoBtn.getAttribute("data-video");
+            modal.style.display = "block";
+        });
+
+        // Check window size when the page loads
+        window.onload = checkWindowSize;
+
+        // Adjust the view when the window is resized
+        window.onresize = checkWindowSize;
+
     </script>
 </body>
 
