@@ -271,6 +271,22 @@
             border: 2px solid #e94560;
         }
 
+        #downloadmeBtn {
+            color: #e94560;
+            border: 2px solid #e94560;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        #downloadmeBtn:hover {
+            background-color: #e94560;
+            color: #fff;
+        }
 
         #hero .btn-outline:hover {
             background-color: #e94560;
@@ -717,7 +733,8 @@
             <p>Aspiring Full Stack Developer passionate about creating modern, responsive, and dynamic web applications.
             </p>
             <a href="#projects" class="btn btn-primary">Explore My Work</a>
-            <a href="./james_fallouh_cv.pdf" class="btn btn-outline">Download CV</a>
+            <a id="downloadmeBtn" href="./james_fallouh_cv.pdf">Download CV</a>
+
 
             <!-- New Watch Demo Button -->
             <a href="#" id="watchDemoBtn" class="btn btn-outline"
