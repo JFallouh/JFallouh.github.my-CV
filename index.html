@@ -271,6 +271,7 @@
             border: 2px solid #e94560;
         }
 
+
         #hero .btn-outline:hover {
             background-color: #e94560;
             color: #fff;
@@ -285,11 +286,32 @@
             box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.05);
             z-index: 3;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Ensure the container takes up the available width */
+            overflow: hidden;
+            /* Prevent overflow of content */
         }
 
         #hero .video-container:hover {
             transform: translateY(-10px);
             box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), -10px -10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .video-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5), -10px -10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Ensure iframe is responsive and fits inside the container */
+        .video-container iframe {
+            width: 100%;
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            z-index: 4;
+            display: block;
+            max-width: 100%;
+            /* Keep iframe responsive */
         }
 
         #hero iframe {
@@ -678,6 +700,7 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/2CZmbsSZL-k" frameborder="0"
                     allowfullscreen></iframe>
             </div>
+
         </div>
     </section>
 
@@ -990,7 +1013,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         function toggleNavbar() {
             const navbar = document.querySelector('.navbar');
