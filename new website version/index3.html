@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Fallouh - Full Stack Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #141E30;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Side Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 80px;
+            background-color: #2D3E50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            z-index: 1000;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            padding: 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+            transform: scale(1.2);
+        }
+
+        /* Section Styles */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            position: relative;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(45deg, #1f4037, #99f2c8);
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            background: linear-gradient(to right, #f39c12, #f97300);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorChange 5s infinite alternate;
+            margin-bottom: 20px;
+        }
+
+        @keyframes colorChange {
+            0% {
+                background: linear-gradient(to right, #f39c12, #f97300);
+            }
+            100% {
+                background: linear-gradient(to right, #f97300, #f39c12);
+            }
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        #hero .btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        #hero .btn-primary {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        #hero .btn-primary:hover {
+            background-color: #ff7733;
+            transform: scale(1.1);
+        }
+
+        #hero .btn-outline {
+            background-color: transparent;
+            color: #f39c12;
+            border: 2px solid #f39c12;
+        }
+
+        #hero .btn-outline:hover {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        #hero .video-container {
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        #about {
+            background-color: #16213e;
+            color: #fff;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #1a1a2e;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #2D3E50;
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #fff;
+            text-align: center;
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #16213e;
+            padding: 60px 0;
+        }
+
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .skill {
+            width: 200px;
+            text-align: center;
+        }
+
+        .skill h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill .icon {
+            font-size: 4rem;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #1a1a2e;
+            color: #fff;
+            text-align: center;
+        }
+
+        #contact h2 {
+            margin-bottom: 30px;
+        }
+
+        #contact form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #contact .form-control {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #2D3E50;
+            border: none;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        #contact .form-control::placeholder {
+            color: #bbb;
+        }
+
+        #contact .btn {
+            background-color: #f39c12;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #16213e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer .social-links a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.5rem;
+        }
+
+        footer .social-links a:hover {
+            color: #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Side Navigation -->
+    <nav>
+        <a href="#hero"><i class="fas fa-home"></i></a>
+        <a href="#about"><i class="fas fa-user"></i></a>
+        <a href="#projects"><i class="fas fa-briefcase"></i></a>
+        <a href="#skills"><i class="fas fa-code"></i></a>
+        <a href="#contact"><i class="fas fa-envelope"></i></a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section">
+        <div>
+            <h1>I'm James Fallouh</h1>
+            <p>Aspiring Full Stack Developer with a passion for building dynamic, user-centric web applications. Let's explore my work and see what I can bring to your project.</p>
+            <a href="#projects" class="btn btn-primary">Explore My Work</a>
+            <a href="james_fallouh_cv.pdf" class="btn btn-outline">Download CV</a>
+            
+            <!-- Add a video or image -->
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2CZmbsSZL-k" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div>
+            <h2>About Me</h2>
+            <p>I am a full-stack developer specializing in building end-to-end web applications. My skillset includes proficiency in frontend technologies like React and backend frameworks such as Node.js and Spring. I am passionate about learning and experimenting with new technologies, focusing on creating user-centric solutions.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div>
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="images/medical_Appoitnment_1.webp" alt="Medical Appointment Booking System">
+                    <h3>Medical Appointment Booking System</h3>
+                    <p>React, TypeScript, Spring, MySQL</p>
+                    <a href="https://github.com/JFallouh/MedicalAppointmentBookingSystem" class="btn-primary" target="_blank">View Code</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="images/hotel_reservation_2webp.webp" alt="Hotel Reservation System">
+                    <h3>Hotel Reservation System</h3>
+                    <p>Laravel, Blade, PostgreSQL</p>
+                    <a href="https://james-fallouh-hrs-plus-mysql-app.onrender.com/public/" class="btn-primary" target="_blank">Visit Website</a>
+                    <a href="https://github.com/JFallouh/HotelReservationSystem" class="btn-outline" target="_blank">View Code</a>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="images/bookstore1.webp" alt="Bookstore Management System">
+                    <h3>Bookstore Management System</h3>
+                    <p>Thymeleaf, Spring MVC, MySQL</p>
+                    <a href="https://github.com/JFallouh/BookstoreManagementSystem" class="btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div>
+            <h2>Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skill">
+                    <i class="fab fa-js icon"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-react icon"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-node-js icon"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-java icon"></i>
+                    <h3>Java</h3>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-database icon"></i>
+                    <h3>MySQL</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div>
+            <h2>Contact Me</h2>
+            <form action="https://formspree.io/f/mblrywdz" method="POST">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <input type="email" name="_replyto" class="form-control" placeholder="Your Email" required>
+                <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 James Fallouh</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/james-fallouh-025763298/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/JFallouh" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://stackoverflow.com/users/23288643/james" target="_blank"><i class="fab fa-stack-overflow"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
